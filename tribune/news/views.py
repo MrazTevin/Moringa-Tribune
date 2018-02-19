@@ -16,3 +16,13 @@ def news_of_day(request):
         </html>
             '''
     return HttpResponse(html)
+
+def convert_dates(dates):
+    # function to get weekday number for dates
+
+    day_number = dt.date.weekday(dates)
+    days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturdaay',"Sunday"]
+
+    # returning actual day of the week
+    day = days[day_number]
+    return day
