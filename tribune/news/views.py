@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,Http404
 import datetime as dt
 # Create your views here.
 
@@ -38,9 +38,16 @@ def convert_dates(dates):
     return day
 
 def past_days_news(request,past_date):
+    
         # convert data from string Url
+    try:
+        date = dt.datetime.strptime(past_date, '%Y-%m-%d').date()
+    
+    except ValueError:
+        # Raise 404 error when ValueError is thrown
 
-    date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
+        raise Http404()
+    
     
     day = convert_dates(date)
     html = f'''
