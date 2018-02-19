@@ -34,4 +34,24 @@ def convert_dates(dates):
 
     # returning actual day of the week
     day = days[day_number]
+
     return day
+
+def past_days_news(request,past_date):
+        # convert data from string Url
+
+    date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
+    
+    day = convert_dates(date)
+    html = f'''
+      <html>
+        <body>
+          <h1>News for {day} {date.day}-{date.month}-{date.year}</h1>
+      </html>
+         '''
+    
+    return HttpResponse(html)
+    
+
+
+
