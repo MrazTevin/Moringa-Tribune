@@ -15,6 +15,15 @@ def news_of_day(request):
             </body>
         </html>
             '''
+            # To convert date object to find exact day
+    day = convert_dates(date)
+    html = f'''
+        <html>
+          <body>
+            <h1>News for {day} {date.day}-{date.month}-{date.year}
+          </body>
+        </html>
+        '''
     return HttpResponse(html)
 
 def convert_dates(dates):
