@@ -47,6 +47,7 @@ def past_days_news(request,past_date):
       <html>
         <body>
           <h1>News for {day} {date.day}-{date.month}-{date.year}</h1>
+          </body>
       </html>
          '''
     
