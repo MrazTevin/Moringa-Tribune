@@ -8,3 +8,6 @@ class Editor(models.Model):
 
     def __str__(self):
         return self.first_name
+    
+    class Meta:
+        ordering = ['name']
