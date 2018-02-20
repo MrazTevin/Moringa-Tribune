@@ -4,8 +4,6 @@ import datetime as dt
 from django.shortcuts import render
 # Create your views here.
 
-def welcome(request):
-    return render(request, 'welcome.html')
 
 def news_today(request):
     date = dt.date.today()
