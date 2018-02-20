@@ -64,5 +64,9 @@ class ArticleTestClass(TestCase):
             today_news = Article.today_news()
             self.assertTrue(len(today_news)>0)
 
-
+        def test_get_news_by_date(self):
+            test_date = '2017-20-17'
+            date = dt.datetime.strptime(test_date, '%Y-%m-%d').date()
+            news_by_date = Articles.days_news(date)
+            self.assertTrue(len(news_by_date) == 0)
  
