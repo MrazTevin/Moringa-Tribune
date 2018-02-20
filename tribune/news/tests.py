@@ -50,7 +50,7 @@ class ArticleTestClass(TestCase):
             self.new_tag = tags(name ='testing')
             self.new_tag.save()
 
-            self.new_article= Article(title='TestArticle'),post='This is a random test Post',editor=self.james)
+            self.new_article= Article(title='TestArticle',post='This is a random test Post',editor=self.james)
             self.new_article.save()
 
             self.new_article.tags.add(self.new_tag)
@@ -58,7 +58,6 @@ class ArticleTestClass(TestCase):
         def tearDown(self):
             Editor.objects.all().delete()
             tags.objects.all.delete()
-            Article.objects.all().delete()
 
         def test_get_news_today(self):
             today_news = Article.today_news()

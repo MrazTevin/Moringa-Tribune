@@ -2,14 +2,16 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
 import datetime as dt
 from django.shortcuts import render
+from .models import Article
 # Create your views here.
 
 
 def news_today(request):
     date = dt.date.today()
-            # To convert date object to find exact day
- 
-    return render(request, 'all-news/today-news.html', {"date":date,})
+    news = Article.todays_news()
+        
+           # To convert date object to find exact day
+    return render(request, 'all-news/today-news.html', {"date":date,"news":news})
 
 # View Function to present news form past days
 def past_days_news(request,past_date):
