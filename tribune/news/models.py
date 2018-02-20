@@ -12,6 +12,13 @@ class Editor(models.Model):
     class Meta:
         ordering = ['first_name']
 
+    def save_editor(self):
+        self.save()
+
+
+
+        
+
 class tags(models.Model):
     name = models.CharField(max_length =30)
 
